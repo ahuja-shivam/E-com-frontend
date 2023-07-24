@@ -1,0 +1,66 @@
+# Dependency directories
+node_modules/
+
+# Build directory
+build/
+
+# Production build output
+dist/
+
+# macOS folder attributes
+.DS_Store
+
+# Editor-specific files
+*.swp
+*.swo
+*.vscode/
+*.idea/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Coverage output
+coverage/
+
+# Compiled output of TypeScript
+*.tsbuildinfo
+
+# Compiled output of Next.js
+.next/
+out/
+
+# Compiled output of Gatsby.js
+.cache/
+
+# Jest cache
+.jest/
+
+# Parcel cache
+.cache/
+
+# Compiled output of Vue.js
+/dist/
+
+# Preact
+/preact-cli-build/
+/preact.config.js
+
+# Yarn Integrity file
+.yarn-integrity
+
+# PnP
+.pnp.*
+
+# Storybook cache
+.storybook/*.js.snap
+.storybook/webpack.config.js
+.storybook/webpack.config.js
