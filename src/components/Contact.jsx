@@ -1,6 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+
+// Initialize Firebase
 
 const Contact = () => {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [feedback, setFeedback] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+
+      // Clear form after successful submission
+      setFullName("");
+      setEmail("");
+      setFeedback("");
+      alert("Message sent successfully!");
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("An error occurred. Please try again later.");
+    }
+  };
+
   return (
     <div>
       <div className="container mb-5">
@@ -12,42 +34,64 @@ const Contact = () => {
         </div>
         <div className="row">
           <div className="col-md-5 d-flex justify-content-center">
-            <img src="https://uploads-ssl.webflow.com/5ef0df6b9272f7410180a013/5ef204bb10b93fdbe5e601bb_contact-2860030_1920-1024x683.jpg" alt="Contact us" height="400px" width="400px" />
+            <img
+              src="https://uploads-ssl.webflow.com/5ef0df6b9272f7410180a013/5ef204bb10b93fdbe5e601bb_contact-2860030_1920-1024x683.jpg"
+              alt="Contact us"
+              height="400px"
+              width="400px"
+            />
           </div>
           <div className="col-md-6">
-            <div class="mb-3">
-              <label for="exampleForm" class="form-label">
-                Full Name
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                id="exampleForm"
-                placeholder="Abc"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">
-                Email address
-              </label>
-              <input
-                type="email"
-                class="form-control"
-                id="exampleFormControlInput1"
-                placeholder="name@example.com"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">
-               Feedback or Query
-              </label>
-              <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="5"
-              ></textarea>
-              <button type="submit" className="btn btn-outline-primary my-3 w-100">Send Message</button>
-            </div>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label htmlFor="fullName" className="form-label">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="fullName"
+                  placeholder="Abc"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="email" className="form-label">
+                  Email address
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  placeholder="name@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="feedback" className="form-label">
+                  Feedback or Query
+                </label>
+                <textarea
+                  className="form-control"
+                  id="feedback"
+                  rows="5"
+                  value={feedback}
+                  onChange={(e) => setFeedback(e.target.value)}
+                  required
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                onClick={handleSubmit}
+                className="btn btn-outline-primary my-3 w-100"
+              >
+                Send Message
+              </button>
+            </form>
           </div>
         </div>
       </div>
